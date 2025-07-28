@@ -1,11 +1,8 @@
 import openai
 import speech_recognition as sr
-from dotenv import load_dotenv
-import os
 
+openai.api_key = input("Please paste in your openai key.")
 
-load_dotenv()  # Load from .env
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
 text = ""
 
@@ -17,7 +14,7 @@ def speechtotxt():
 
         # Capture audio input from the microphone
         with sr.Microphone() as source:
-            print("What would you like to say")
+            print("\nTambarine is listening... (Say 'stop' to end)\n")
             audio_data = recognizer.listen(source)
 
         # Perform speech recognition using Google Web Speech API
@@ -26,41 +23,49 @@ def speechtotxt():
             print("You said:", text)
             break
         except sr.UnknownValueError:
-            print("Sorry, could not understand audio.")
+            print("Sorry, could not understand what you said, please try again.")
         except sr.RequestError as e:
-            print("Error: Could not request results from Google Speech Recognition service;")
-def askGPT():
-    global text
-
-    # Call GPT-4 
-    response = openai.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {"role": "user", "content": text}
-        ]
-    )
-
-    # Print the AI's response
-    print("\nTambarine AI says:\n")
-    print(response.choices[0].message.content.strip())
+            print("Network error with Google Speech Recognition.")
 
 def main():
-    print("Welcome to Beta v1.0.1 \n")
-    print("This project uses OpenAI credits. You must provide your own key in the .env file.\n")
+    print("Welcome to Beta v1.0.2 \n")
+    print("This project uses OpenAI credits. You must provide your own key for now.")
+    print("This version allows for continous chats and voice commands")
+    print("To exit, just say 'stop', 'quit', or 'exit' at any time.\n")
+
+    # Conversation history
+    messages = [
+        {"role": "system", "content": "You are called Tambarine, a friendly and helpful AI voice assistant coded in python."}
+    ]
 
 
-    speechtotxt()
     while True:
-        question = input("would you like to submit that to Tambarine Ai? (y or n): ").lower()
-        if question == "y":
-            print()
+        speechtotxt()
+
+
+        if text.lower().strip() in ["stop", "exit", "quit"]:
+            print("Goodbye, see you next time!")
             break
-        elif question == "n":
-            print()
-            speechtotxt()
-        else:
-            print("Please enter 'y' or 'n'!")
-    askGPT()
+
+        messages.append({"role": "user", "content": text})
+
+        try:
+            response = openai.chat.completions.create(
+                model="gpt-4",
+                messages=messages
+            )
+
+            answer = response.choices[0].message.content.strip()
+            print("\nTambarine AI says:\n" + answer + "\n")
+
+            messages.append({"role": "assistant", "content": answer})
+
+        except Exception as e:
+            print(f"Error during OpenAI API call: {e}")  
+
+        
+
+
 
 if __name__ == "__main__":
     main()

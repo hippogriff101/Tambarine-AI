@@ -1,9 +1,9 @@
 # Ignore Python virtual environments
 .venv/
 
-# Ignore env files
-.env
-test.env
+# Ignore txt files
+.txt
+key.txt
 
 # Ignore Python cache files
 __pycache__/
