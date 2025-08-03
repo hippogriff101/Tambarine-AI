@@ -61,7 +61,7 @@ Please paste in your OpenAI key.
 You can get your key from https://platform.openai.com/account/api-keys
 
 _I hope to make this project free by using a free model or key_
-_If you need a free key head to [this repo](https://github.com/dan1471/FREE-openai-api-keys) by [@dan1471](https://github.com/dan1471) 
+_If you need a free key head to [this repo](https://github.com/dan1471/FREE-openai-api-keys) by [@dan1471](https://github.com/dan1471)_ 
 
 ---
 
