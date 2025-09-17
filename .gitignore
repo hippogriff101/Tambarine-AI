@@ -2,8 +2,7 @@
 .venv/
 
 # Ignore txt files
-.txt
-key.txt
+.env
 
 # Ignore Python cache files
 __pycache__/

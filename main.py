@@ -1,7 +1,10 @@
 import openai
 import speech_recognition as sr
+from dotenv import load_dotenv
 
-openai.api_key = input("Please paste in your openai key.")
+load_dotenv()
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 text = ""
