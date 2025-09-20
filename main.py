@@ -53,6 +53,14 @@ def main():
     print("This project uses OpenAI credits. You must provide your own key for now.")
     print("This version allows for continous chats and voice commands")
     print("To exit, just say 'stop', 'quit', or 'exit' at any time.\n")
+    print(" _______              _                 _                      _____ ")
+    print("|__   __|            | |               (_)               /\   |_   _|")
+    print("   | | __ _ _ __ ___ | |__   __ _ _ __ _ _ __   ___     /  \    | |  ")
+    print("   | |/ _` | '_ ` _ \| '_ \ / _` | '__| | '_ \ / _ \   / /\ \   | |  ")
+    print("   | | (_| | | | | | | |_) | (_| | |  | | | | |  __/  / ____ \ _| |_ ")
+    print("   |_|\__,_|_| |_| |_|_.__/ \__,_|_|  |_|_| |_|\___| /_/    \_\_____|")
+    print("---------------------------------------------------------------------\n")                                                                  
+                                                                      
     playsound("hello.mp3")
 
     # Conversation history
