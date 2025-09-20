@@ -116,7 +116,7 @@ def main():
         print("❌ No API key found. Please add OPENAI_API_KEY to your .env file.")
         return
 
-    print("Welcome to Beta v2.0.1 \n")
+    print("Welcome to v2.0.1 \n")
 
     print(r"""
   _______              _                _                       _____ 
