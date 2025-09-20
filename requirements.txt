@@ -1,4 +1,5 @@
-gTTS==2.5.4
-openai==1.97.0
-SpeechRecognition==3.14.3
-playsound==1.2.2
+openai
+speech_recognition
+gtts
+dotenv
+playsound
