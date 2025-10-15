@@ -4,7 +4,7 @@ A voice-based assistant powered by OpenAI's __GPT-4o-mini__ (```openai```), ```S
 
 _the 'quirky' spelling of 'Tamborine' was intensional_
 
-
+! __NOTE__ TEMPOREROLY DOWN DUE TO API CREDITS LOW WILL PUSH FIX SOON !
 
 ---
 
